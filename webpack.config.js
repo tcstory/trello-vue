@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: ['./src/page/app/app.js']
+        app: ['./src/page/app/index.js']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -20,6 +20,10 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue'
+            },
+            {
+                test: /\.(css|scss)$/,
+                loader: ExtractTextPlugin.extract('style','css','sass')
             },
             {
                 test: /\.js$/,
@@ -37,10 +41,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('css/index.css'),
+        new ExtractTextPlugin('css/app.css'),
         new HtmlWebpackPlugin({
-            template: './src/page/app/app.html',
-            filename: 'app.html',
+            template: './src/page/app/index.html',
+            filename: 'index.html',
             inject: 'body'
         })
     ]

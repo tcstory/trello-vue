@@ -9,7 +9,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import MyHeader from '../../components/header/index.vue';
-
+import Overview from '../../components/overview/index.vue';
+import Stage from '../../components/stage/index.vue';
 
 const App = Vue.extend({
     components: {
@@ -19,5 +20,11 @@ const App = Vue.extend({
 
 const router = new VueRouter();
 router.map({
+    '/': {
+        component: Overview
+    },
+    '/stage': {
+        component: Stage
+    }
 });
 router.start(App,'#app');

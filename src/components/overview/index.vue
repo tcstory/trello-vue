@@ -9,7 +9,7 @@
                 <div class="board">
                     <p class="board-title">Welcome Board</p>
                 </div>
-                <div class="board">
+                <div class="board" @click="gotoBoard">
                     <p class="board-title">日常</p>
                 </div>
                 <div class="board-btn">
@@ -86,6 +86,12 @@
 
 <script type="text/babel">
     export default {
-
+        methods: {
+            gotoBoard() {
+                this.$route.router.go({
+                    name: 'stage'
+                })
+            }
+        }
     }
 </script>

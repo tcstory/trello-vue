@@ -5,7 +5,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: ['./src/page/app/index.js']
+        app: ['./src/page/app/index.js'],
+        'vue-libs': ['vue', 'vue-router']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -46,12 +47,20 @@ module.exports = {
             template: './src/page/app/index.html',
             filename: 'index.html',
             inject: 'body'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vue-libs',
+            filename: 'js/vue-libs',
+            minChunks: Infinity
         })
-    ]
+    ],
+    vue: {
+        autoprefixer: false
+    }
 };
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
+    module.exports.devtool = '#source-map';
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({

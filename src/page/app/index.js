@@ -21,9 +21,11 @@ const App = Vue.extend({
 const router = new VueRouter();
 router.map({
     '/': {
+        name: 'overview',
         component: Overview
     },
     '/stage': {
+        name: 'stage',
         component: Stage
     }
 });

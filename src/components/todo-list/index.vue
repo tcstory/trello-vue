@@ -12,12 +12,8 @@
 </template>
 
 <style lang="sass" scoped rel="stylesheet/scss">
-    .reset-btn {
-        outline: none;
-        background: none;
-        border: none;
-        font-size: 100%;
-    }
+
+    @import "../reset-css/reset.scss";
 
     .todo-list {
         background: #E2E4E6;
@@ -39,7 +35,7 @@
     }
 
     .add-new-todo-btn {
-        @extend .reset-btn;
+        @extend %reset-btn;
         color: hsl(0, 0%, 30%);
         height: 2.125em;
         width: 100%;
